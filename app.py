@@ -20,7 +20,7 @@ def hello():
 
     locations = clusterParameters['locations']
     vmSize = request.query.vmSize
-    nodeCount = clusterParameters['nodeCount']
+    nodeCount = request.query.nodeCount
     adminUsername = clusterParameters['adminUsername']
     adminPassword = clusterParameters['adminPassword']
 
