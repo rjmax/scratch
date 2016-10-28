@@ -21,8 +21,8 @@ def hello():
     locations = request.query.locations
     vmSize = request.query.vmSize
     nodeCount = request.query.nodeCount
-    adminUsername = request.query.'adminUsername'
-    adminPassword = request.query.'adminPassword'
+    adminUsername = request.query.adminUsername
+    adminPassword = request.query.adminPassword
 
     # This is the skeleton of the template that we're going to add resources to
     generatedTemplate = {
