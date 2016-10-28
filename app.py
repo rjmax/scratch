@@ -19,7 +19,7 @@ def hello():
         clusterParameters = json.load(inputFile)
 
     locations = clusterParameters['locations']
-    vmSize = 'blah
+    vmSize = 'blah'
     nodeCount = clusterParameters['nodeCount']
     adminUsername = clusterParameters['adminUsername']
     adminPassword = clusterParameters['adminPassword']
