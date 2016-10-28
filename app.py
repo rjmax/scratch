@@ -6,6 +6,7 @@ import bottle
 import os
 import sys
 from bottle import route, run, response
+from main import generateTemplate
 
 @route('/')
 def hello():
