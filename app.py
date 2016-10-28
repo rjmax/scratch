@@ -51,8 +51,8 @@ def hello():
     resources = opsCenter.generate_template(locations, nodeCount, adminUsername, adminPassword)
     generatedTemplate['resources'] += resources
 
-    return generatedTemplate
-    #return json.dump(generatedTemplate, outputFile, sort_keys=True, indent=4, ensure_ascii=False)
+    #return generatedTemplate
+    return json.dump(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
 
 
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
