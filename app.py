@@ -5,7 +5,7 @@ This script runs the application using a development server.
 import bottle
 import os
 import sys
-from bottle import route, run, response
+from bottle import route, run, response, request
 import json
 import opsCenter
 import nodes
@@ -18,11 +18,11 @@ def hello():
     with open('clusterParameters.json') as inputFile:
         clusterParameters = json.load(inputFile)
 
-    locations = clusterParameters['locations']
-    vmSize = clusterParameters['vmSize']
-    nodeCount = clusterParameters['nodeCount']
-    adminUsername = clusterParameters['adminUsername']
-    adminPassword = clusterParameters['adminPassword']
+    locations = request.query.locations
+    vmSize = request.query.vmSize
+    nodeCount = request.query.nodeCount
+    adminUsername = request.query.'adminUsername'
+    adminPassword = request.query.'adminPassword'
 
     # This is the skeleton of the template that we're going to add resources to
     generatedTemplate = {
