@@ -20,7 +20,7 @@ def hello():
     with open('clusterParameters.json') as inputFile:
         clusterParameters = json.load(inputFile)
 
-    locations = clusterParameters['locations'].split(",")
+    locations = request.query['locations'].split(",")
     vmSize = request.query['vmSize']
     nodeCount = int(request.query['nodeCount'])
     adminUsername = clusterParameters['adminUsername']
