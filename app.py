@@ -10,7 +10,7 @@ from bottle import route, run, response
 @route('/')
 def hello():
     response.headers['Content-Type'] = 'application/json'
-    return main.py
+    return execfile('main.py')
 
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
     # Debug mode will enable more verbose output in the console window.
