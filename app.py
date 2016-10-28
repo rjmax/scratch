@@ -51,7 +51,7 @@ def hello():
     resources = opsCenter.generate_template(locations, nodeCount, adminUsername, adminPassword)
     generatedTemplate['resources'] += resources
 
-    return "blah"
+    return generatedTemplate
     #return json.dump(generatedTemplate, outputFile, sort_keys=True, indent=4, ensure_ascii=False)
 
 
