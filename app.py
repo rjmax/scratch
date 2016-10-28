@@ -18,11 +18,11 @@ def hello():
     with open('clusterParameters.json') as inputFile:
         clusterParameters = json.load(inputFile)
 
-    locations = "blah"
-    #vmSize = request.query.vmSize
-    #nodeCount = request.query.nodeCount
-    #adminUsername = request.query.adminUsername
-    #adminPassword = request.query.adminPassword
+    locations = clusterParameters['locations']
+    vmSize = clusterParameters['vmSize']
+    nodeCount = clusterParameters['nodeCount']
+    adminUsername = clusterParameters['adminUsername']
+    adminPassword = clusterParameters['adminPassword']
 
     # This is the skeleton of the template that we're going to add resources to
     generatedTemplate = {
@@ -51,9 +51,9 @@ def hello():
     resources = opsCenter.generate_template(locations, nodeCount, adminUsername, adminPassword)
     generatedTemplate['resources'] += resources
 
-    #return generatedTemplate
+    return generatedTemplate
     #return json.dumps(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
-    return locations
+    #return locations
 
 
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
