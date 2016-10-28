@@ -52,7 +52,7 @@ def hello():
     generatedTemplate['resources'] += resources
 
     #return generatedTemplate
-    return json.dump(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
+    return json.dumps(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
 
 
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
