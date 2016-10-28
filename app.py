@@ -19,10 +19,10 @@ def hello():
         clusterParameters = json.load(inputFile)
 
     locations = clusterParameters['locations']
-    vmSize = 'blah'
-    nodeCount = clusterParameters['nodeCount']
-    adminUsername = clusterParameters['adminUsername']
-    adminPassword = clusterParameters['adminPassword']
+    vmSize = request.query.vmSize
+    nodeCount = request.query.nodeCount
+    adminUsername = request.query.adminUsername
+    adminPassword = request.query.adminPassword
 
     # This is the skeleton of the template that we're going to add resources to
     generatedTemplate = {
