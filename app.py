@@ -10,6 +10,8 @@ import json
 import opsCenter
 import nodes
 
+bottle.app().catchall = False
+
 @route('/')
 def hello():
     response.headers['Content-Type'] = 'application/json'
