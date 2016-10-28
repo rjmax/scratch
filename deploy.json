@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"locations": {
+			"type": "string"
+		},
+		"vmSize": {
+			"type": "string"
+		},
+		"nodeCount": {
+			"type": "int"
+		},
+		"adminUsername": {
+			"type": "securestring"
+		},
+		"adminPassword": {
+			"type": "securestring"
+		}
+	},
+	"variables": {
+		"seg1": "http://ryjonesbottle.azurewebsites.net/?locations=",
+		"seg2": "[parameters('locations')]",
+		"seg3": "&vmSize=",
+		"seg4": "[parameters('vmSize')]",
+		"seg5": "&nodeCount=",
+		"seg6": "[string(parameters('nodeCount'))]",
+		"seg7": "&adminUsername=",
+		"seg8": "[parameters('adminUsername')]",
+		"seg9": "&adminPassword=",
+		"seg10": "[parameters('adminPassword')]",
+		"uri": "[concat(variables('seg1'),variables('seg2'),variables('seg3'),variables('seg4'),variables('seg5'),variables('seg6'),variables('seg7'),variables('seg8'),variables('seg9'),variables('seg10'))]"
+	},
+	"resources": [{
+		"apiVersion": "2015-01-01",
+		"name": "nestedTemplate",
+		"type": "Microsoft.Resources/deployments",
+		"properties": {
+			"mode": "incremental",
+			"templateLink": {
+				"uri": "[variables('uri')]",
+				"contentVersion": "1.0.0.0"
+			},
+			"parameters": {
+				"locations": {
+					"value": "[parameters('locations')]"
+				},
+				"vmSize": {
+					"value": "[parameters('vmSize')]"
+				},
+				"nodeCount": {
+					"value": "[parameters('nodeCount')]"
+				},
+				"adminUsername": {
+					"value": "[parameters('adminUsername')]"
+				},
+				"adminPassword": {
+					"value": "[parameters('adminPassword')]"
+				}
+			}
+		}
+	}]
+}
