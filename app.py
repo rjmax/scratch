@@ -23,8 +23,8 @@ def hello():
     locations = request.query['locations'].split(",")
     vmSize = request.query['vmSize']
     nodeCount = int(request.query['nodeCount'])
-    adminUsername = clusterParameters['adminUsername']
-    adminPassword = clusterParameters['adminPassword']
+    adminUsername = request.query['adminUsername']
+    adminPassword = request.query['adminPassword']
 
     # This is the skeleton of the template that we're going to add resources to
     generatedTemplate = {
@@ -53,8 +53,8 @@ def hello():
     resources = opsCenter.generate_template(locations, nodeCount, adminUsername, adminPassword)
     generatedTemplate['resources'] += resources
 
-    return generatedTemplate
-    #return json.dumps(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
+    #return generatedTemplate
+    return json.dumps(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
     #return locations
 
 
