@@ -40,23 +40,6 @@
 			"templateLink": {
 				"uri": "[variables('uri')]",
 				"contentVersion": "1.0.0.0"
-			},
-			"parameters": {
-				"locations": {
-					"value": "[parameters('locations')]"
-				},
-				"vmSize": {
-					"value": "[parameters('vmSize')]"
-				},
-				"nodeCount": {
-					"value": "[parameters('nodeCount')]"
-				},
-				"adminUsername": {
-					"value": "[parameters('adminUsername')]"
-				},
-				"adminPassword": {
-					"value": "[parameters('adminPassword')]"
-				}
 			}
 		}
 	}]
