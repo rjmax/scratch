@@ -18,11 +18,11 @@ def hello():
     with open('clusterParameters.json') as inputFile:
         clusterParameters = json.load(inputFile)
 
-    locations = request.query.locations
-    vmSize = request.query.vmSize
-    nodeCount = request.query.nodeCount
-    adminUsername = request.query.adminUsername
-    adminPassword = request.query.adminPassword
+    locations = "blah"
+    #vmSize = request.query.vmSize
+    #nodeCount = request.query.nodeCount
+    #adminUsername = request.query.adminUsername
+    #adminPassword = request.query.adminPassword
 
     # This is the skeleton of the template that we're going to add resources to
     generatedTemplate = {
@@ -52,7 +52,8 @@ def hello():
     generatedTemplate['resources'] += resources
 
     #return generatedTemplate
-    return json.dumps(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
+    #return json.dumps(generatedTemplate, sort_keys=True, indent=4, ensure_ascii=False)
+    return locations
 
 
 if '--debug' in sys.argv[1:] or 'SERVER_DEBUG' in os.environ:
