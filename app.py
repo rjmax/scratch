@@ -10,7 +10,7 @@ import json
 import opsCenter
 import nodes
 
-@route('template/v1')
+@route('/')
 def hello():
     response.headers['Content-Type'] = 'application/json'
 
